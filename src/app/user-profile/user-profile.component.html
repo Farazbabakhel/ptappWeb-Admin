@@ -1,0 +1,191 @@
+<main
+  class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ps ps--active-y"
+  style="overflow-y: scroll !important;"
+>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="multisteps-form mb-5">
+          <div class="row">
+            <div class="col-12 col-lg-8 m-auto">
+              <form class="multisteps-form__form mb-8"  style="height: 407px; overflow-y: scroll; position: inherit !important; ">
+                <div
+                  class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active"
+                  data-animation="FadeIn"
+                >
+                  <h5 class="font-weight-bolder mb-0">About me</h5>
+                  <div class="multisteps-form__content">
+                    <div class="row mt-3">
+                      <div class="col-12 col-sm-6">
+                        <label>First Name</label>
+                        <input
+                          class="multisteps-form__input form-control"
+                          type="text"
+                          placeholder="eg. Michael"
+                          name="First" [(ngModel)]="user.firstName" />
+                      </div>
+                      <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                        <label>Sur Name</label>
+                        <input
+                          class="multisteps-form__input form-control"
+                          type="text"
+                          placeholder="eg. Prior"
+                          name="surName" [(ngModel)]="user.surName"
+                        />
+                      </div>
+                    </div>
+
+
+                    <div class="row mt-3">
+                      <div class="col-12 col-sm-6">
+                        <label>Cell</label>
+                        <input
+                          class="multisteps-form__input form-control"
+                          type="text" [(ngModel)]="user.cell" name="cell"
+                          placeholder="Contact Number"
+                        />
+                      </div>
+                      <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                        <label>region</label>
+                        <input
+                          class="multisteps-form__input form-control"
+                          [(ngModel)]="user.region" name="region"
+                          type="text"
+                          placeholder="******"
+                        />
+                      </div>
+                    </div>
+
+
+                    <div class="row mt-3">
+                        <div class="col-12 col-sm-6">
+                          <label>Post Code</label>
+                          <input
+                            class="multisteps-form__input form-control"
+                            type="text" [(ngModel)]="user.postCode" name="postCode"
+                            placeholder="Contact Number"
+                          />
+                        </div>
+                        <div class="col-12 col-sm-6 mt-3 mt-sm-0">
+                          <label>Location On Map</label>
+                           <input type="text" [(ngModel)]="GeoLocationLatLongPick" name="GeoLocationLatLong" class="form-control"
+                          placeholder="Latitude" /> 
+                          
+                          <button style="margin-top: 20px;" type="button" class="btn btn-sm btn-dark form-control" (click)="open(content,'end')">Choose On Map</button>
+                        </div>
+                      </div>
+
+
+                      <div class="row mt-3">
+
+                        
+
+
+                        <div class="col-12 col-sm-6">
+                          <label>Frequency</label>
+                          <input
+                            class="multisteps-form__input form-control"
+                            type="text" [(ngModel)]="user.frequencyTime" name="frequencyTime"
+                            placeholder="i.e Several Times a week, "
+                          />
+                        </div>
+                       
+                      </div>
+
+                      <div class="row mt-3">
+                        <label>Tags</label>
+                          <div *ngFor="let tag of Tags" class="form-check col-sm-3">
+                          <input class="form-check-input" type="checkbox" value="{{tag.tagID}}" name="{{tag.tagID}}" [(ngModel)]="tag.isChecked" id="{{tag.tagID}}" >
+                        <label class="custom-control-label" for="{{tag.tagID}}">{{tag.name}}</label>
+                      </div>
+                        
+                      </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    <div class="button-row d-flex mt-4">
+                      <button
+                        class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
+                        type="button" (click)="UpdateProfile()"
+                        title="Next"
+                      >
+                        Update
+                      </button>
+                    </div>
+
+                    
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<ng-template #content let-modal>
+    <!-- <div class="modal-header">
+      <h5 class="modal-title" id="modal-basic-title">Pick Up the Start Point</h5>
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <form>
+        <div class="mb-3">
+          <label for="StartLatLong">Pick Up the Start Point</label> 
+             <agm-map  style="height: 400px;width: 470px;" [zoom]="10" [latitude]="lat" [longitude]="long" (mapClick)="onMapClicked($event)">
+              <agm-marker 
+                  [latitude]="lat" 
+                  [longitude]="long">    
+              </agm-marker>
+          </agm-map>
+        </div>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div> -->
+  </ng-template>

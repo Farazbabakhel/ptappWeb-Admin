@@ -1,0 +1,59 @@
+<main
+  class="main-content max-height-vh-100 h-100 ps ps--active-y col-lg-8 col-md-10 col-sm-8 offset-lg-2 offset-md-1 offset-sm-1"
+>
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>Personal Trainers Questions</h6>
+            <button type="button" (click)="OpenPopup(AddBioQuestion,null)" class="btn btn-link">Add New</button>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Serial</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
+                    <th class="text-secondary opacity-7"></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let question of QuestionsList">
+                    
+                    <td>
+                        <p class="text-xs font-weight-bold mb-0">{{question.serialNo}}</p>
+                      </td>
+
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0 text-left" title="Company Name">{{question.description}}</p>
+                    </td>
+
+                    <td>
+                      <a [routerLink]="['/Options']" [queryParams]="{ id: question.questionID }" class="btn btn-link">Show Option</a>
+                      <!-- <button type="button" (click)="RedirectToOptions(question)" class="btn btn-link">Add Option</button> -->
+                      <button type="button" (click)="OpenPopup(EditBioQuestion,question)" class="btn btn-link">Edit</button>
+                      <button type="button" (click)="Delete(question)" class="btn btn-link">Delete</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</main>
+  
+
+  <ng-template class="modal fade" #AddBioQuestion let-modal>
+    <app-add-bio-questios  [ModalREF]="modalRef"></app-add-bio-questios>
+  </ng-template>
+
+  <ng-template class="modal fade" #EditBioQuestion let-modal>
+    <app-edit-bio-questios [SelectQuestion]="SelectQuestion" [ModalREF]="modalRef"></app-edit-bio-questios>
+  </ng-template>

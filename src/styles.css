@@ -1,1 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
+.popup{
+    background: #a2c0c8 !important;
+}
+
+body{
+    background: #e3ece8
+}
+p.mb-0, p.mb-4 {
+    color: #654d4d !important;
+}

@@ -1,0 +1,26 @@
+
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">OTP Verification</h5>
+              <button type="button" class="btn btn-link close" data-dismiss="modal" aria-label="Close" (click)="closeModal()">
+                <!-- <span aria-hidden="true">&times;</span> -->
+                X
+              </button>
+            </div>
+            <div class="modal-body">
+              <!-- <form> -->
+                <div class="form-group">
+                  <p>Enter the OTP code we just sent on your email {{hideEmailChar()}}</p>
+                </div>
+                <div class="form-group">
+                    <ngx-otp-input [config]="otpInputConfig" (otpChange)="handeOtpChange($event)" (fill)="handleFillEvent($event)">
+                    </ngx-otp-input>
+                    <p>Don't Receive The OTP</p>
+                    <button type="button" class="btn btn-link" (click)="ResendOTP()">Resend</button>
+                </div>
+              <!-- </form> -->
+            </div>
+            <div class="modal-footer">
+               <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closeModal()">Close</button> 
+              <!--<button type="button" class="btn btn-primary" >Send message</button>-->
+            </div>
+   

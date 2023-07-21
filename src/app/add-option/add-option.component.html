@@ -1,0 +1,74 @@
+<main
+  class="main-content max-height-vh-100 h-100 ps ps--active-y col-lg-8 col-md-10 col-sm-8 offset-lg-2 offset-md-1 offset-sm-1"
+>
+  <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="multisteps-form mb-5">
+          <div class="row">
+            <div class="col-12 col-lg-8 m-auto">
+              <form class="multisteps-form__form mb-8" style="height: 407px" #OptionForm="ngForm" (ngSubmit)="OptionForm.form.valid && Add()" novalidate>
+                <div
+                  class="card multisteps-form__panel p-3 border-radius-xl bg-white js-active"
+                  data-animation="FadeIn"
+                >
+                  <h5 class="font-weight-bolder mb-0">Bio Question Option</h5>
+                  <div class="multisteps-form__content">
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            <label>Bio Option Details</label>
+    
+                              <textarea class="multisteps-form__input form-control" name="description" [(ngModel)]="option.description" required></textarea>
+                          </div>
+    
+                          <div class="col-12">
+                            <label>Bio Option Serial Number</label>
+                            <input
+                              class="multisteps-form__input form-control"
+                              type="text"
+                              required
+                              placeholder="eg. 1"
+                              name="serialNo" [(ngModel)]="option.serialNo" /> 
+                          </div>
+
+                          <div class="col-12">
+                            <label>Bio Option Type</label>
+                            <select [(ngModel)]="option.type" name="type" required>
+                                <option value="">Select Option</option>
+                                <option value="Check">Check Box</option>
+                                <option value="Radio">Radio Button</option>
+                            </select>   
+                          </div>
+
+                          <div class="col-12">
+                            <label>Bio Option Points</label>
+                            <input
+                              class="multisteps-form__input form-control"
+                              type="text"
+                              required
+                              placeholder="eg. 1"
+                              name="points" [(ngModel)]="option.points" /> 
+                          </div>
+
+                      <div class="button-row d-flex mt-4">
+                        <button
+                          class="btn bg-gradient-dark ms-auto mb-0 js-btn-next"
+                          type="submit"
+                          title="Next" [disabled]="!OptionForm.form.valid"
+                        >
+                          Add
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+

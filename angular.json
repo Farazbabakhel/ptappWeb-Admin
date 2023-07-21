@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ptappWeb": {
+    "ptapp-web-admin": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ptapp-web",
+            "outputPath": "dist/ptapp-web-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -60,10 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "ptappWeb:build:production"
+              "browserTarget": "ptapp-web-admin:build:production"
             },
             "development": {
-              "browserTarget": "ptappWeb:build:development"
+              "browserTarget": "ptapp-web-admin:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -71,7 +71,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ptappWeb:build"
+            "browserTarget": "ptapp-web-admin:build"
           }
         },
         "test": {
@@ -94,5 +94,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "1803127a-385a-46be-bad5-f21ce0b5f803"
   }
 }

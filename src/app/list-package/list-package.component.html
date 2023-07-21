@@ -1,0 +1,81 @@
+
+<main
+  class="main-content max-height-vh-100 h-100 ps ps--active-y col-lg-8 col-md-10 col-sm-8 offset-lg-2 offset-md-1 offset-sm-1"
+>
+<div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-header pb-0">
+            <h6>Personal Trainers Packages</h6>
+            <button type="button" (click)="OpenPopup(AddPackage,null)" class="btn btn-link">Add New</button>
+          </div>
+          <div class="card-body px-0 pt-0 pb-2">
+            <div class="table-responsive p-0">
+              <table class="table align-items-center mb-0">
+                <thead>
+                  <tr>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Name</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Discount %</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Price</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Points</th>
+                    <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Effective Date</th>
+                    <th class="text-secondary opacity-7">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let p of PackagesList">
+                    
+                    <td>
+                        <p class="text-xs font-weight-bold mb-0">{{p.name}}</p>
+                      </td>
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0">{{p.offPercent}} %</p>
+                      </td>
+
+                    <td>
+                      <p class="text-xs font-weight-bold mb-0 text-left" title="Package Price">{{p.price}}</p>
+                      <p class="text-xs font-weight-bold mb-0 text-left" title="Package Price After Discout">{{p.priceAfterDiscount}}</p>
+                    </td>
+
+                    <td>
+                        <p class="text-xs font-weight-bold mb-0 text-left" title="Total Points">{{p.points}}</p>
+                        <p class="text-xs font-weight-bold mb-0 text-left" title="Total Responses">{{p.totalResponses}}</p>
+                      </td>
+
+                      <td>
+                        <p class="text-xs font-weight-bold mb-0 text-left" title="Effective Date From">
+                            {{ p.effectiveDateFrom | date:'y'}}-{{ p.effectiveDateFrom | date:'MM'}}-{{ p.effectiveDateFrom | date:'d'}}
+                        </p>
+                        <p class="text-xs font-weight-bold mb-0 text-left" title="Effective Date To">
+                            {{ p.effectiveDateTo | date:'y'}}-{{ p.effectiveDateTo | date:'MM'}}-{{ p.effectiveDateTo | date:'d'}}
+                        </p>
+                      </td>
+
+                      
+
+                    <td>
+                      <button type="button" (click)="OpenPopup(EditPackage,p)" class="btn btn-link">Edit</button>
+                      <button type="button" (click)="Delete(p)" class="btn btn-link">Delete</button>
+                    </td>
+                  </tr>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</main>
+  
+
+  <ng-template class="modal fade" #AddPackage let-modal>
+    <app-add-package  [ModalREF]="modalRef"></app-add-package>
+  </ng-template>
+
+  <ng-template class="modal fade" #EditPackage let-modal>
+    <app-edit-package [SelectPackage]="SelectPackage" [ModalREF]="modalRef"></app-edit-package>
+  </ng-template>

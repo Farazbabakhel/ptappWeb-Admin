@@ -1,0 +1,62 @@
+<main
+  class="main-content max-height-vh-100 h-100 ps ps--active-y col-lg-8 col-md-10 col-sm-8 offset-lg-2 offset-md-1 offset-sm-1"
+>
+
+  <div class="container-fluid my-3 py-3">
+    
+
+
+  
+  <div class="card mt-4" id="basic-info">
+  <div class="card-header">
+    <h5>Client Bio Questions</h5>
+  </div>
+
+  <div class="card-body pt-4">
+<section class="py-3">
+    <div class="row">
+      <div class="col-md-8 me-auto text-left">
+      <h5>Question {{QuestionNo+1}}</h5>
+      <p>{{CurrentQuestion.description}}</p>
+      </div>
+      </div>
+
+  <div class="row">
+  <div class="col-6">
+
+    <div *ngFor="let option of CurrentQuestion.bioOptions" class="checklist-item checklist-item-primary ps-2 ms-3">
+    <div class="d-flex align-items-center">
+    <div class="form-check">
+    <input class="form-check-input" type="checkbox" [(ngModel)]="option.isChecked" id="flexCheckDefault">
+    </div>
+    <h6 class="mb-0 text-dark font-weight-bold text-sm">{{option.description}}</h6>
+    </div>
+    </div>
+
+  </div>
+
+  </div>
+
+  <div  *ngIf="CurrentQuestion.bioOptions.length>0" class="row pt-6">
+    <div class="col-3 ">
+      <button type="button" (click)="Previous()" class="btn btn-primary"><< Previous</button>
+    </div>
+    <div class="col-3 offset-sm-6">
+      <button *ngIf="!IsQuestionCompleted" type="button" (click)="Next()" class="btn btn-primary">Next >></button>
+      <button *ngIf="IsQuestionCompleted" type="button" (click)="SubmitBioAnswer()" class="btn btn-primary">Submit</button>
+    </div>
+  </div>
+  
+
+
+
+</section>
+  </div>
+  </div>
+  </div>
+</main>
+
+  
+ 
+  
+  
